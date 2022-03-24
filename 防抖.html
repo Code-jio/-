@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 防抖
+      function debounce(fn, time) {
+        let timer = null
+        return function () {
+          const that = this
+          const arg = arguments
+          clearTimeout(timer)
+          timer = setTimeout(function () {
+            fn.apply(that, arg)
+          }, time)
+        }
+      }
+
+      // 节流
+      function throttle(fn, time) {
+        let timer = null
+        return function () {
+          const that = this
+          const arg = arguments
+          if (timer !== null) return
+          timer = setTimeout(function () {
+            fn.apply(that, arg)
+            timer = null
+          }, time)
+        }
+      }
+    </script>
+  </body>
+</html>

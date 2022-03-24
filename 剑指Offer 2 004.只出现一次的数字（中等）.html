@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>
+      给你一个整数数组 nums ，除某个元素仅出现 一次 外，其余每个元素都恰出现
+      三次 。请你找出并返回那个只出现了一次的元素。
+    </h3>
+    <script>
+      /**
+       * @param {number[]} nums
+       * @return {number}
+       */
+      var singleNumber = function (nums) {
+        let Num = nums.reduce((pre, cur) => {
+          if (cur in pre) {
+            pre[cur]++
+          } else {
+            pre[cur] = 1
+          }
+          return pre
+        }, {})
+        for (let i in Num) {
+          // Num[i] === 1 && console.log(i)
+          if (Num[i] === 1) return i
+        }
+      }
+
+      // let names = [0, 1, 0, 1, 0, 1, 100]
+
+      // let nameNum = names.reduce((pre, cur) => {
+      //   if (cur in pre) {
+      //     pre[cur]++
+      //   } else {
+      //     pre[cur] = 1
+      //   }
+      //   return pre
+      // }, {})
+      // for (let i in nameNum) {
+      //   nameNum[i] === 1 && console.log(i)
+      // }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>
+      给定两个以字符串形式表示的非负整数 num1 和 num2，返回 num1 和 num2
+      的乘积，它们的乘积也表示为字符串形式。
+    </h3>
+    <script>
+      /**
+       * @param {string} num1
+       * @param {string} num2
+       * @return {string}
+       */
+      var multiply = function (num1, num2) {
+        let a = (parseInt(num1) * parseInt(num2)).toString()
+        console.log(a)
+        console.log(typeof a)
+        return a
+      }
+      let num1 = '123456789'
+      let num2 = '987654321'
+      multiply(num1, num2)
+    </script>
+  </body>
+</html>

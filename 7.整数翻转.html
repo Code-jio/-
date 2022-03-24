@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>给你一个 32 位的有符号整数 x ，返回将 x 中的数字部分反转后的结果。 如果反转后整数超过 32 位的有符号整数的范围 [−2^31,  2^31 − 1] ，就返回 0。 假设环境不允许存储 64 位整数（有符号或无符号）。 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/reverse-integer 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+    </h3>
+    <script>
+        // let reg1 = /[0-9]/g;
+        // let reg2 = /\D/;
+        // let str = "-4563";
+
+        // console.log(str.match(reg1));
+        // console.log(reg2.exec(str)[0]);
+
+        // let a = str.match(reg1);
+        // console.log(a.join(''));
+        // let b = a.join('');
+        // console.log(Number(b));
+
+        // let num = 120;
+        // let str = num.toString();
+
+        // let reg1 = /[0-9]/g;
+
+        // let a = str.match(reg1); //得到数字，以数组形式
+        // console.log(str.match(reg1));
+
+        // function rev(array) {
+        //     let len1 = array.length;
+        //     for (let i = 0; i < (len1 / 2); i++) {
+        //         a = array[i];
+        //         array[i] = array[len1 - i - 1];
+        //         array[len1 - i - 1] = a;
+        //     }
+        //     return array;
+        // }
+
+        // a = rev(a); //数组反转
+
+        // let b = Number(a.join(''));
+
+        // if (num < 0) {
+        //     let c = Number("-" + b);
+        //     console.log(c);
+        // } else if (num == 0) {
+        //     console.log(num);
+        // } else {
+        //     let c = Number(b);
+        //     console.log(c);
+        // };
+
+
+
+
+
+
+        var reverse = function(x) {
+            // 拿到未知数x，并将其转为字符串
+            let str = x.toString();
+
+            // 定义正则表达式  获得数字部分
+            let reg1 = /[0-9]/g;
+
+            //得到数字，以数组形式
+            let a = str.match(reg1);
+
+            // 声明数组翻转函数
+            function rev(array) {
+                let len1 = array.length;
+                for (let i = 0; i < (len1 / 2); i++) {
+                    a = array[i];
+                    array[i] = array[len1 - i - 1];
+                    array[len1 - i - 1] = a;
+                }
+                return array;
+            }
+            a = rev(a); //数组反转 
+
+            // 反转后 将数组拼接为字符串并转为数字类型
+            let b = Number(a.join(''));
+            let min = Math.pow(-2, 31);
+            let max = Math.pow(2, 31) - 1;
+            let c;
+
+            // 1534236469 测试用例
+            if (x < 0) {
+                c = Number("-" + b);
+                if (c >= min) {
+                    return c
+                } else {
+                    return 0
+                }
+            } else if (x >= 0) {
+                c = Number(b);
+                if (c <= max) {
+                    return c
+                } else {
+                    return 0
+                }
+            }
+        };
+        let x = prompt("请输入");
+        console.log(reverse(x));
+    </script>
+</body>
+
+</html>

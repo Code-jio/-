@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h3>
+    Alice 手中有一把牌，她想要重新排列这些牌，分成若干组，使每一组的牌数都是 groupSize ，并且由 groupSize 张连续的牌组成。
+    给你一个整数数组 hand 其中 hand[i] 是写在第 i 张牌，和一个整数 groupSize 。如果她可能重新排列这些牌，返回 true ；否则，返回 false 。
+    来源力扣（LeetCode）
+    <a href="https://leetcode-cn.com/problems/hand-of-straights">链接</a>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+  </h3>
+  <script>
+    let hand = [1,2,3,6,2,3,4,7,8], groupSize = 3;
+    let isNStraightHand = function(hand, groupSize) {
+
+      // if (!hand.length%groupSize==0) {
+      //   return false
+      // }else{
+      //   for (let i = 0; i< array.length; i++) {
+      //     if (hand[i]===hand[i+1]+1) {
+      //       return false
+      //     }
+      //     return
+      //   }
+      // }
+      //   return true
+
+      // if (hand.length % groupSize !== 0) {
+      //   return false;
+      // } else {
+      //     let arr = hand.sort((a, b) => a - b);
+      //     console.log(arr);
+      //     console.log(arr.indexOf(1));
+      //     for (let i = 0; i < arr.length; i++) {
+      //         for (let j = 1; j < groupSize; j++) {
+      //             if (arr.indexOf(arr[i] + j) === -1) {
+      //                 return false;
+      //             } else {
+      //                 arr.splice(arr.indexOf(arr[i] + j), 1);
+      //             }
+      //         }
+      //         arr.sort((a, b) => a - b);
+      //     }
+      //   return true;
+      // }
+    };
+    isNStraightHand(hand, groupSize);
+  </script>
+</body>
+</html>
